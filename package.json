@@ -2,6 +2,9 @@
   "name": "node-api3-project",
   "version": "1.0.0",
   "description": "Node API 3 Project",
+  "engines": {
+    "node": "13.3.0"
+  }
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
