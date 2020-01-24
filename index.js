@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const postRoutes = require('./posts/postRouter.js');
 const userRoutes = require('./users/userRouter.js');
@@ -9,7 +10,7 @@ function logger(req, res, next) {
   next();
 }
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 const server = express();
 
 server.use(express.json());
