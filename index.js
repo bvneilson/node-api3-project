@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const postRoutes = require('./posts/postRouter.js');
 const userRoutes = require('./users/userRouter.js');
