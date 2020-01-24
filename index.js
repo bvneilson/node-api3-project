@@ -4,7 +4,7 @@ const userRoutes = require('./users/userRouter.js');
 
 function logger(req, res, next) {
   const now = new Date().toISOString();
-  console.log(`${now}: ${req.method} to ${req.url} from ${req.get('Origin')}`);
+  console.log(`${now}: ${req.method} to ${req.url}`);
 
   next();
 }
