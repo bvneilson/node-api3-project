@@ -1,13 +1,28 @@
 const express = require('express');
+const postRoutes = require('./posts/postRouter.js');
+const userRoutes = require('./users/userRouter.js');
 
+function logger(req, res, next) {
+  const now = new Date().toISOString();
+  console.log(`${now}: ${req.method} to ${req.url}`);
+
+  next();
+}
+
+const port = 4000;
 const server = express();
 
-server.get('/', (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+server.use(express.json());
+server.use(logger);
+
+
+server.use('/posts', postRoutes);
+server.use('/users', userRoutes);
+
+server.use(function(req, res, next) {
+  res.status(404).send("That request cannot be processed");
 });
 
-//custom middleware
-
-function logger(req, res, next) {}
+server.listen(port, () => console.log("Listening for changes on port " + port));
 
 module.exports = server;
