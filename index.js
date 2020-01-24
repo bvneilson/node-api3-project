@@ -9,7 +9,7 @@ function logger(req, res, next) {
   next();
 }
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 const server = express();
 
 server.use(express.json());
